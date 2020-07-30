@@ -1,0 +1,24 @@
+
+BIRTH DEATH MODEL (FIRST MOMENT ONLY)
+
+MODEL EQUATION(S)$
+
+c_ := {df(m1,t)=(p1 - p2)*m1,n1=m1}$
+
+CHARACTERISTIC SET$
+
+aa_(1) := df(n1,t) + n1*( - p1 + p2)$
+
+aa_(2) :=  - m1 + n1$
+
+MODEL ALGEBRAICALLY OBSERVABLE$
+
+PARAMETER VALUES$
+
+b2_ := {p1=2,p2=3}$
+
+MODEL PARAMETER SOLUTION(S)$
+
+g_ := {{p1=p2 - 1}}$
+
+MODEL NON IDENTIFIABLE$

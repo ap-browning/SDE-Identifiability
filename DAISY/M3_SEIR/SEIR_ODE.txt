@@ -1,0 +1,31 @@
+WRITE "SEIR MODEL (ODE MODEL)"$
+
+% B_ IS THE VARIABLE VECTOR 
+B_:={n10,n01,S,E,I,R}$
+
+FOR EACH EL_ IN B_ DO DEPEND EL_,T$
+
+%B1_ IS THE UNKNOWN PARAMETER VECTOR
+B1_:={p1,p2,p3,mu}$
+
+%NUMBER OF STATES 
+NX_:=4$
+%NUMBER OF INPUTS 
+NU_:=0$
+%NUMBER OF OUTPUTS 
+NY_:=2$
+
+%MODEL EQUATIONS
+C_:={df(S,t) = -p1*S*I,
+     df(E,t) = p1*S*I - p2*E,
+     df(I,t) = p2*E - p3*I,
+     df(R,t) = p3*I,
+     n10     = mu*I,
+     n01     = mu*R
+}$
+
+FLAG_:=1$
+
+daisy()$
+
+END$

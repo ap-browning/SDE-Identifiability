@@ -1,0 +1,28 @@
+WRITE "BIRTH DEATH MODEL (OBSERVE MEAN AND VARIANCE)"$
+
+% OBSERVABLES, FOLLOWED BY STATE VARIABLES
+B_:={n1,n2,m1,m2}$
+
+FOR EACH EL_ IN B_ DO DEPEND EL_,T$
+
+% UNKNOWN PARAMETER VECTOR
+B1_:={p1,p2}$
+
+%NUMBER OF STATES
+NX_:=2$
+%NUMBER OF INPUTS
+NU_:=0$
+%NUMBER OF OUTPUTS
+NY_:=2$
+
+%MODEL EQUATIONS
+C_:={df(m1,t)=  (p1 - p2) * m1,
+     df(m2,t)=2*(p1 - p2) * m2 	+ (p1 + p2) * m1,
+     n1=m1,
+     n2=m2}$
+
+FLAG_:=1$
+
+daisy()$
+
+END$

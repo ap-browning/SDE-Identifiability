@@ -1,0 +1,38 @@
+
+SEIR MODEL (ODE MODEL)
+
+MODEL EQUATION(S)$
+
+c_ := {df(s,t)= - i*p1*s,
+df(e,t)= - e*p2 + i*p1*s,
+df(i,t)=e*p2 - i*p3,
+df(r,t)=i*p3,
+n10=i*mu,
+n01=mu*r}$
+
+CHARACTERISTIC SET$
+
+aa_(1) := df(n01,t) - n10*p3$
+
+aa_(2) := df(n10,t,3)*n10*mu - df(n10,t,2)*df(n10,t)*mu + df(n10,t,2)*n10**2*p1 + df(n10,t,2)*n10*mu*(p2 + p3)
+ - df(n10,t)**2*mu*(p2 + p3) + df(n10,t)*n10**2*p1*(p2 + p3) + n10**3*p1*p2*p3$
+
+aa_(3) := df(n10,t,2) + df(n10,t)*(p2 + p3) - n10*s*p1*p2 + n10*p2*p3$
+
+aa_(4) := df(n10,t) - e*mu*p2 + n10*p3$
+
+aa_(5) :=  - i*mu + n10$
+
+aa_(6) := n01 - r*mu$
+
+MODEL ALGEBRAICALLY OBSERVABLE$
+
+PARAMETER VALUES$
+
+b2_ := {p1=2,p2=3,p3=5,mu=7}$
+
+MODEL PARAMETER SOLUTION(S)$
+
+g_ := {{mu=(7*p1)/2,p2=3,p3=5}}$
+
+MODEL NON IDENTIFIABLE$

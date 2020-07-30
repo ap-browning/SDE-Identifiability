@@ -1,0 +1,44 @@
+WRITE "SEIR MODEL (SDE MODEL, MEAN-FIELD CLOSURE)"$
+
+% B_ IS THE VARIABLE VECTOR 
+B_:={n10,n01,n20,n02,n11,m1000,m0100,m0010,m0001,m2000,m0200,m0020,m0002,m1100,m1010,m1001,m0110,m0101,m0011}$
+
+FOR EACH EL_ IN B_ DO DEPEND EL_,T$
+
+%B1_ IS THE UNKNOWN PARAMETER VECTOR
+B1_:={p1,p2,p3,mu}$
+
+%NUMBER OF STATES 
+NX_:=14$
+%NUMBER OF INPUTS 
+NU_:=0$
+%NUMBER OF OUTPUTS 
+NY_:=5$
+
+%MODEL EQUATIONS
+C_:={df(m1000,t) = -p1 * m1010,
+     df(m0100,t) =  p1 * m1010 - p2 * m0100,
+     df(m0010,t) =  p2 * m0100 - p3 * m0010,
+     df(m0001,t) =  p3 * m0010,
+     df(m2000,t) = -2 * p1 * m0010 * m1000^2 + p1 * m1010,
+     df(m0200,t) =  2 * p1 * m0010 * m0100 * m1000 + p1 * m1010 + p2 * m0100 - 2 * p2 * m0200,
+     df(m0020,t) =  p2 * m0100 + 2 * p2 * m0110 + p3 * m0010 - 2 * p3 * m0020,
+     df(m0002,t) = p3 * m0010 + 2 * p3 * m0011,
+     df(m1100,t) = -p1 * m1000 * m0100 * m0010 + p1 * m1000^2 * m0010 - p1 * m1010 - p2 * m1100,
+     df(m1010,t) = -p1 * m1000 * m0010^2 + p2 * m1100 - p3 * m1010,
+     df(m1001,t) = -p1 * m1000 * m0010 * m0001 + p3 * m1010,
+     df(m0110,t) =  p1 * m1000 * m0010^2 - p2 * m0100 - p2 * m0110 + p2 * m0200 - p3 * m0110,
+     df(m0101,t) = p1 * m1000 * m0010 * m0001 - p2 * m0101 + p3 * m0110,
+     df(m0011,t) = p2 * m0101 - p3 * m0010 - p3 * m0011 + p3 * m0020,
+     n10     = mu*m0010,
+     n01     = mu*m0001,
+     n20     = mu^2*m0020,
+     n02     = mu^2*m0002,
+     n11     = mu^2*m0011
+}$
+
+FLAG_:=1$
+
+daisy()$
+
+END$

@@ -1,0 +1,50 @@
+
+TWO POOL MODEL (OBSERVE FIRST TWO MOMENTS)
+
+MODEL EQUATION(S)$
+
+c_ := {df(m10,t)= - (p1 + p3)*m10 + m01*p4,
+df(m01,t)= - (p2 + p4)*m01 + m10*p3,
+df(m20,t)= - (2*((p1 + p3)*m20 - m11*p4) - (p1 + p3)*m10) + m01*p4,
+df(m02,t)=(m10 + 2*m11)*p3 - 2*(p2 + p4)*m02 + (p2 + p4)*m01,
+df(m11,t)= - ((p3 + p4 + p2 + p1)*m11 - m20*p3 + (p3 + p4)*m10) + m02*p4,
+y1=m10,
+y2=m20}$
+
+CHARACTERISTIC SET$
+
+aa_(1) := df(y1,t,2) + df(y1,t)*(p1 + p2 + p3 + p4) + y1*(p1*p2 + p1*p4 + p2*p3)$
+
+aa_(2) := df(y1,t)*( - 3*p1*p2 - 3*p1*p4 - 3*p2*p3 - 2*p2*p4) + df(y2,t,3) + 3*df(y2,t,2)*(p1 + p2 + p3 + p4) 
++ 2*df(y2,t)*(p1**2 + 4*p1*p2 + 2*p1*p3 + 4*p1*p4 + p2**2 + 4*p2*p3 + 2*p2*p4 + p3**2 + 2*p3*p4 + p4**2) + 2*
+y1*( - p1**2*p2 - p1**2*p4 - p1*p2**2 - 2*p1*p2*p3 - 3*p1*p2*p4 - p1*p3*p4 - 2*p1*p4**2 - p2**2*p3 - p2*p3**2 
+- 2*p2*p3*p4 + 2*p2*p4**2 - 2*p3*p4**2 + 2*p4**3) + 4*y2*(p1**2*p2 + p1**2*p4 + p1*p2**2 + 2*p1*p2*p3 + 2*p1*
+p2*p4 + p1*p3*p4 + p1*p4**2 + p2**2*p3 + p2*p3**2 + p2*p3*p4)$
+
+aa_(3) :=  - m10 + y1$
+
+aa_(4) := df(y1,t) - m01*p4 + y1*(p1 + p3)$
+
+aa_(5) :=  - m20 + y2$
+
+aa_(6) :=  - 2*df(y1,t)*(p1 + p3) + df(y2,t,2) + df(y2,t)*(3*p1 + p2 + 3*p3 + p4) - 2*m02*p4**2 + y1*( - 2*p1
+**2 - p1*p2 - 4*p1*p3 - p1*p4 - p2*p3 - 2*p3**2 + 2*p4**2) + 2*y2*(p1**2 + p1*p2 + 2*p1*p3 + p1*p4 + p2*p3 + 
+p3**2)$
+
+aa_(7) :=  - df(y1,t) + df(y2,t) - 2*m11*p4 - 2*y1*(p1 + p3) + 2*y2*(p1 + p3)$
+
+MODEL ALGEBRAICALLY OBSERVABLE$
+
+PARAMETER VALUES$
+
+b2_ := {p1=2,p2=3,p3=5,p4=7}$
+
+MODEL PARAMETER SOLUTION(S)$
+
+g_ := {{p3=( - 2308*p4**2 + 1590*p4 - 64883)/648,
+p1=(1876*p4**2 - 1590*p4 + 63047)/648,
+p2=(4*p4**2 - 6*p4 + 119)/6,
+p4=root_of(4*p4_**3 - 6*p4_**2 + 119*p4_ - 126,p4_,tag_1)},
+{p3=5,p1=2,p2=3,p4=7}}$
+
+MODEL LOCALLY IDENTIFIABLE$
