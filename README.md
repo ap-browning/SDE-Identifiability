@@ -43,7 +43,11 @@ All functions are thoroughly documented. To obtain documentation for each functi
 
 ### Results
 
-All results in the main and supporting material documents can be obtained by running the corresponding script in the `Results` folder. By default `load = true` the results are loaded from a `.jld2` file rather than recomputed. Before running scripts with `load = true` ensure the working directory of the `Julia` session, `pwd()` is set to the results folder. Approximate runtimes for the full computation of the results for each model (using a 3.7GHz Quad-Code i7 desktop running Windows 10), and figures produced, are given below.
+All results in the main and supporting material documents can be obtained by running the corresponding script in the `Results` folder. By default `load = true` the results are loaded from a `.jld2` file rather than recomputed. Before running scripts with `load = true` ensure the working directory of the `Julia` session, `pwd()` is set to the results folder:
+```
+  cd("/path/to/results/folder")
+```
+Approximate runtimes for the full computation of the results for each model (using a 3.7GHz Quad-Code i7 desktop running Windows 10), and figures produced, are given below.
 
 | Script              | Figure(s)       | Runtime     |
 |---------------------|-----------------|-------------|
