@@ -1,6 +1,6 @@
 # Identifiability
 
- Code to perform identifiability analysis for stochastic differential equations. Repository is supplementary material for the preprint "Listen to the noise: identifiability analysis for stochastic differential equation models in systems biology" available on [bioRxiv](https://www.biorxiv.org).
+ Code to perform identifiability analysis for stochastic differential equations. Repository is supplementary material for the preprint "Listen to the noise: identifiability analysis for stochastic differential equation models in systems biology" available on [bioRxiv](https://www.biorxiv.org/content/10.1101/2020.08.10.245233v1).
 
  The majority of the code concerts the `Julia` module `Identifiability` that performs practical identifiability analysis using pseudo-marginal Markov-chain Monte-Carlo (PM-MCMC). This repository also contains scripts to perform structural identifiability analysis using the moment equations in `DAISY` (Bellu 2007), a package written for the `REDUCE` computer algebra system.
 
