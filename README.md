@@ -1,8 +1,8 @@
 # Identifiability
 
- Code to perform identifiability analysis for stochastic differential equations. Repository is supplementary material for the preprint "Listen to the noise: identifiability analysis for stochastic differential equation models in systems biology" available on [bioRxiv](https://www.biorxiv.org/content/10.1101/2020.08.10.245233v1).
+ Code to perform identifiability analysis for stochastic differential equations. Repository is supplementary material for the preprint "Identifiability analysis for stochastic differential equation models in systems biology" available on [bioRxiv](https://www.biorxiv.org).
 
- The majority of the code concerts the `Julia` module `Identifiability` that performs practical identifiability analysis using pseudo-marginal Markov-chain Monte-Carlo (PM-MCMC). This repository also contains scripts to perform structural identifiability analysis using the moment equations in `DAISY` (Bellu 2007), a package written for the `REDUCE` computer algebra system.
+ The majority of the code contains the `Julia` module `Identifiability` that performs practical identifiability analysis using pseudo-marginal Markov-chain Monte-Carlo (PM-MCMC). This repository also contains scripts to perform structural identifiability analysis using the moment equations in both `DAISY` (Bellu 2007), a package written for the freeware `REDUCE` computer algebra system, and `GenSSI` (Chiş 2011), a package written for `MATLAB`.
 
 ## Practical identifiability analysis in `Julia`
 
@@ -86,14 +86,23 @@ Note that `DAISY` can take a significant amount of time to run, depending on the
 
 All `DAISY` input files are well commented, and correspond to moment equations derived in the main document and the supporting material document.
 
+## Structural identifiability analysis in `GenSSI`
+
+`MATLAB` scripts to perform structural identifiability analysis in `GenSSI` are provided in the `GenSSI` folder. Output files (`_Result.txt`) are also provided.
+
+Once `GenSSI` is installed, open `MATLAB` and run `genssiStartup` from the folder containing `GenSSI` (unless installed to your `MATLAB` directory). To run analysis on the Two Pool model, for example, run `runTwoPool` from the `M2_TwoPool` folder. `GenSSI` can be significantly faster than `DAISY` for non-polynomial moment equations (each model takes seconds to run).
+
+
 ## Required software
 
   - `Julia` can be downloaded from [julialang.org](https://julialang.org/downloads/) or on macOS using `homebrew`: just run `brew cask install julia` in terminal.
   - All `Julia` packages used are available from the standard package installed. Run `Module/Install_Required_Packages.jl` in `Julia` to ensure all required packages are installed.
   - `DAISY`, along with instructions for installing `REDUCE` and tutorials for using `DAISY`, are available from [https://daisy.dei.unipd.it](https://daisy.dei.unipd.it)
+  - `GenSSI`, along with tutorials for using `GenSSI`, are available from [https://github.com/genssi-developer/GenSSI](https://github.com/genssi-developer/GenSSI)
 
  *(Recommended) I recommend the [Juno IDE](https://junolab.org) for `Julia` available for [Atom](https://atom.io)*
 
 
 ## References
 1. Bellu G, Saccomani MP, Audoly S, D'Angiò L. 2007 DAISY: A new software tool to test global identiability of biological and physiological systems. *Comput. Meth. Prog. Bio.* **88**, 52-61.
+2. Chiş O, Banga J, Balsa-Canto E. 2011 GenSSI: a software toolbox for structural identifiability analysis of biological models. *Bioinformatics*  **27**, 2610-2611.
